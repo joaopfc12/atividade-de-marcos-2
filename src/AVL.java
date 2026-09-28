@@ -5,7 +5,6 @@ public class AVL {
         this.raiz = null;
     }
 
-
     public int altura(No no) {
         if (no == null) {
             return 0;
@@ -19,7 +18,6 @@ public class AVL {
         }
         return altura(no.direita) - altura(no.esquerda);
     }
-
 
     private No rotacaoEsquerda(No y) {
         No x = y.direita;
@@ -47,7 +45,6 @@ public class AVL {
         return x;
     }
 
-
     private No balancear(No no) {
         no.altura = 1 + Math.max(altura(no.esquerda), altura(no.direita));
 
@@ -70,7 +67,6 @@ public class AVL {
         return no;
     }
 
-
     public void put(Integer chave) {
         raiz = put(raiz, chave);
     }
@@ -92,7 +88,6 @@ public class AVL {
 
         return balancear(no);
     }
-
 
     public Integer get(Integer chave) {
         No no = get(raiz, chave);
@@ -117,7 +112,6 @@ public class AVL {
         return no;
     }
 
-
     public Integer max() {
         No no = max(raiz);
         if (no == null) {
@@ -136,5 +130,48 @@ public class AVL {
         return max(no.direita);
     }
 
+    public No deletarMax(No no) {
+        if (no == null) {
+            return null;
+        }
+        if (no.direita == null) {
+            return no.esquerda; 
+        }
+        no.direita = deletarMax(no.direita);
+        return balancear(no);
+    }
+
+    public void deletar(Integer chave) {
+        raiz = deletar(raiz, chave);
+    }
+
+    private No deletar(No no, Integer chave) {
+        if (no == null) {
+            return null; 
+        }
+
+        int cmp = chave.compareTo(no.chave);
+
+        if (cmp < 0) {
+            no.esquerda = deletar(no.esquerda, chave);
+        } else if (cmp > 0) {
+            no.direita = deletar(no.direita, chave);
+        } else {
+
+            if (no.esquerda == null) {
+                return no.direita;
+            }
+            if (no.direita == null) {
+                return no.esquerda;
+            }
+
+            No removido = no;
+            no = max(removido.esquerda); // o predecessor assume o lugar
+            no.esquerda = deletarMax(removido.esquerda); // tira o predecessor de onde ele estava
+            no.direita = removido.direita; // herda a direita do removido
+        }
+
+        return balancear(no);
+    }
 
 }
