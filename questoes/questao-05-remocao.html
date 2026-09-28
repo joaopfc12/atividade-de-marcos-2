@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questão 5 — Implementação da Remoção e os Três Casos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="nav-back">&larr; Voltar ao Sumário de Questões</a>
+
+    <header class="page-header">
+      <div class="discipline-title">Árvores e Ordenação de Dados</div>
+      <div class="header-badges">
+        <span class="badge badge-dark">Questão 05</span>
+      </div>
+      <h1>Implementação da Remoção e os Três Casos</h1>
+      <p class="subtitle">Explicação e defesa da lógica de remoção implementada no arquivo AVL.java.</p>
+    </header>
+
+    <section class="card">
+      <h2 class="card-title">Contexto da Implementação</h2>
+      <p class="statement code-context">No arquivo <code>src/AVL.java</code>, você deve implementar os métodos de remoção:</p>
+      <div class="vscode-editor code-snippet" aria-labelledby="del-code-title">
+        <div class="vscode-tabs">
+          <div class="vscode-tab" id="del-code-title">
+            <span class="java-file-icon" aria-hidden="true">J</span>
+            AVL.java
+          </div>
+        </div>
+        <div class="vscode-code" role="region" aria-label="Métodos de remoção">
+          <ol>
+            <li><code><span class="syn-keyword">public</span> <span class="syn-keyword">void</span> <span class="syn-method">deletar</span>(<span class="syn-type">Integer</span> <span class="syn-variable">chave</span>)</code></li>
+            <li><code><span class="syn-keyword">private</span> <span class="syn-type">No</span> <span class="syn-method">deletar</span>(<span class="syn-type">No</span> <span class="syn-variable">no</span>, <span class="syn-type">Integer</span> <span class="syn-variable">chave</span>)</code></li>
+            <li><code><span class="syn-keyword">public</span> <span class="syn-type">No</span> <span class="syn-method">deletarMax</span>(<span class="syn-type">No</span> <span class="syn-variable">no</span>)</code></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 class="card-title">Itens de Avaliação</h2>
+      <ul class="subquestions-list">
+        <li class="subquestion-item">
+          <div class="subquestion-title">1. Remoção de Folha e Nó com 1 Filho</div>
+          <div class="subquestion-desc">
+            Mostre no seu código como foram tratados:
+            <ul style="margin: 0.5rem 0 0 1.5rem;">
+              <li>A remoção de um nó que não possui nenhum filho (folha).</li>
+              <li>A remoção de um nó que possui apenas um filho (esquerdo ou direito), explicando como o filho assume o lugar do nó removido.</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="subquestion-item">
+          <div class="subquestion-title">2. Remoção de Nó com 2 Filhos e o Método deletarMax</div>
+          <div class="subquestion-desc">
+            A especificação da atividade exige que o nó com 2 filhos seja substituído pelo <strong>maior elemento da subárvore esquerda</strong>:
+            <ul style="margin: 0.5rem 0 0 1.5rem;">
+              <li>Como o seu código obtém o nó substituto?</li>
+              <li>Como o método <code>deletarMax</code> remove o maior elemento da subárvore esquerda e trata um eventual filho esquerdo que ele possua?</li>
+              <li>Como as referências da esquerda e da direita do nó substituto são ajustadas?</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="subquestion-item">
+          <div class="subquestion-title">3. Rebalanceamento Pós-Remoção</div>
+          <div class="subquestion-desc">
+            Mostre onde a altura é recalculada e a função <code>balancear</code> é chamada após a exclusão do vértice, tanto no método <code>deletar</code> quanto no <code>deletarMax</code>.
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <footer class="page-footer">
+      UNICAP — Universidade Católica de Pernambuco | Disciplina: Árvores e Ordenação de Dados
+    </footer>
+  </div>
+</body>
+</html>

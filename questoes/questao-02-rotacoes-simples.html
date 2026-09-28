@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questão 2 — Rotações Simples (LL e RR)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="nav-back">&larr; Voltar ao Sumário de Questões</a>
+
+    <header class="page-header">
+      <div class="discipline-title">Árvores e Ordenação de Dados</div>
+      <div class="header-badges">
+        <span class="badge badge-dark">Questão 02</span>
+      </div>
+      <h1>Rotações Simples (LL e RR)</h1>
+      <p class="subtitle">Explicação e defesa da lógica das rotações simples no arquivo AVL.java.</p>
+    </header>
+
+    <section class="card">
+      <h2 class="card-title">Contexto da Implementação</h2>
+      <p class="statement code-context">No arquivo <code>src/AVL.java</code>, você deve implementar os métodos de rotação simples:</p>
+      <div class="vscode-editor code-snippet" aria-labelledby="rot-simples-code-title">
+        <div class="vscode-tabs">
+          <div class="vscode-tab" id="rot-simples-code-title">
+            <span class="java-file-icon" aria-hidden="true">J</span>
+            AVL.java
+          </div>
+        </div>
+        <div class="vscode-code" role="region" aria-label="Métodos de rotação simples">
+          <ol>
+            <li><code><span class="syn-keyword">private</span> <span class="syn-type">No</span> <span class="syn-method">rotacaoDireita</span>(<span class="syn-type">No</span> <span class="syn-variable">y</span>)</code></li>
+            <li><code><span class="syn-keyword">private</span> <span class="syn-type">No</span> <span class="syn-method">rotacaoEsquerda</span>(<span class="syn-type">No</span> <span class="syn-variable">y</span>)</code></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 class="card-title">Itens de Avaliação</h2>
+      <ul class="subquestions-list">
+        <li class="subquestion-item">
+          <div class="subquestion-title">1. Reorganização de Ponteiros na Rotação à Direita</div>
+          <div class="subquestion-desc">
+            Mostre no seu código como as referências entre o nó rebaixado, a nova raiz e a subárvore intermediária são atualizadas durante a rotação à direita.
+          </div>
+        </li>
+
+        <li class="subquestion-item">
+          <div class="subquestion-title">2. Recálculo e Ordem das Alturas</div>
+          <div class="subquestion-desc">
+            Apresente o trecho de código onde as alturas dos nós envolvidos são recalculadas e justifique a ordem em que esse recálculo é realizado.
+          </div>
+        </li>
+
+        <li class="subquestion-item">
+          <div class="subquestion-title">3. Condições de Disparo</div>
+          <div class="subquestion-desc">
+            Com base no seu método <code>balancear</code>, quais condições do fator de balanceamento acionam uma rotação simples à direita (LL) e uma simples à esquerda (RR)?
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <footer class="page-footer">
+      UNICAP — Universidade Católica de Pernambuco | Disciplina: Árvores e Ordenação de Dados
+    </footer>
+  </div>
+</body>
+</html>

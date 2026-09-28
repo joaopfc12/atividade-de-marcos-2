@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questão 6 — Métodos de Consulta (get e max)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="nav-back">&larr; Voltar ao Sumário de Questões</a>
+
+    <header class="page-header">
+      <div class="discipline-title">Árvores e Ordenação de Dados</div>
+      <div class="header-badges">
+        <span class="badge badge-dark">Questão 06</span>
+      </div>
+      <h1>Métodos de Consulta (get e max)</h1>
+      <p class="subtitle">Explicação e defesa da lógica dos métodos de busca implementados no arquivo AVL.java.</p>
+    </header>
+
+    <section class="card">
+      <h2 class="card-title">Contexto da Implementação</h2>
+      <p class="statement code-context">No arquivo <code>src/AVL.java</code>, você deve implementar os métodos de busca e máximo:</p>
+      <div class="vscode-editor code-snippet" aria-labelledby="busca-code-title">
+        <div class="vscode-tabs">
+          <div class="vscode-tab" id="busca-code-title">
+            <span class="java-file-icon" aria-hidden="true">J</span>
+            AVL.java
+          </div>
+        </div>
+        <div class="vscode-code" role="region" aria-label="Métodos de busca">
+          <ol>
+            <li><code><span class="syn-keyword">public</span> <span class="syn-type">Integer</span> <span class="syn-method">get</span>(<span class="syn-type">Integer</span> <span class="syn-variable">chave</span>)</code></li>
+            <li><code><span class="syn-keyword">private</span> <span class="syn-type">No</span> <span class="syn-method">get</span>(<span class="syn-type">No</span> <span class="syn-variable">no</span>, <span class="syn-type">Integer</span> <span class="syn-variable">chave</span>)</code></li>
+            <li><code><span class="syn-keyword">public</span> <span class="syn-type">Integer</span> <span class="syn-method">max</span>()</code></li>
+            <li><code><span class="syn-keyword">private</span> <span class="syn-type">No</span> <span class="syn-method">max</span>(<span class="syn-type">No</span> <span class="syn-variable">no</span>)</code></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 class="card-title">Itens de Avaliação</h2>
+      <ul class="subquestions-list">
+        <li class="subquestion-item">
+          <div class="subquestion-title">1. Implementação da Busca (get)</div>
+          <div class="subquestion-desc">
+            Apresente o seu código do método <code>get</code> e explique como ele navega pela árvore, identificando as condições de parada para chave encontrada e para chave inexistente (retornando <code>null</code>).
+          </div>
+        </li>
+
+        <li class="subquestion-item">
+          <div class="subquestion-title">2. Localização do Valor Máximo (max)</div>
+          <div class="subquestion-desc">
+            Mostre como o seu método <code>max</code> navega exclusivamente para a direita para localizar a maior chave da árvore e como ele trata a tentativa de chamada quando a árvore estiver vazia (<code>this.raiz == null</code>).
+          </div>
+        </li>
+
+        <li class="subquestion-item">
+          <div class="subquestion-title">3. Abordagem Recursiva vs. Iterativa</div>
+          <div class="subquestion-desc">
+            No seu código, os métodos de busca foram desenvolvidos de forma recursiva ou iterativa (com laço de repetição)?
+            <ul style="margin: 0.5rem 0 0 1.5rem;">
+              <li>Explique a lógica da abordagem escolhida no seu código.</li>
+              <li>Mostre como converter o método <code>max</code> (ou <code>get</code>) para a outra abordagem (por exemplo, transformando a recursão em um laço <code>while</code> ou vice-versa).</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <footer class="page-footer">
+      UNICAP — Universidade Católica de Pernambuco | Disciplina: Árvores e Ordenação de Dados
+    </footer>
+  </div>
+</body>
+</html>

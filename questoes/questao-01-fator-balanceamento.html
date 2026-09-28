@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questão 1 — Cálculo de Altura e Fator de Balanceamento</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="nav-back">&larr; Voltar ao Sumário de Questões</a>
+
+    <header class="page-header">
+      <div class="discipline-title">Árvores e Ordenação de Dados</div>
+      <div class="header-badges">
+        <span class="badge badge-dark">Questão 01</span>
+      </div>
+      <h1>Cálculo de Altura e Fator de Balanceamento</h1>
+      <p class="subtitle">Explicação e defesa da lógica de cálculo de altura e balanceamento no arquivo AVL.java.</p>
+    </header>
+
+    <section class="card">
+      <h2 class="card-title">Contexto da Implementação</h2>
+      <p class="statement code-context">No arquivo <code>src/AVL.java</code>, você deve implementar os métodos de altura e fator de balanceamento:</p>
+      <div class="vscode-editor code-snippet" aria-labelledby="altura-code-title">
+        <div class="vscode-tabs">
+          <div class="vscode-tab" id="altura-code-title">
+            <span class="java-file-icon" aria-hidden="true">J</span>
+            AVL.java
+          </div>
+        </div>
+        <div class="vscode-code" role="region" aria-label="Métodos de altura e FB">
+          <ol>
+            <li><code><span class="syn-keyword">public</span> <span class="syn-keyword">int</span> <span class="syn-method">altura</span>(<span class="syn-type">No</span> <span class="syn-variable">no</span>)</code></li>
+            <li><code><span class="syn-keyword">public</span> <span class="syn-keyword">int</span> <span class="syn-method">calcularFatorBalanceamento</span>(<span class="syn-type">No</span> <span class="syn-variable">no</span>)</code></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 class="card-title">Itens de Avaliação</h2>
+      <ul class="subquestions-list">
+        <li class="subquestion-item">
+          <div class="subquestion-title">1. Tratamento de Nó Nulo e Altura de Folhas</div>
+          <div class="subquestion-desc">
+            Mostre no seu código como o método <code>altura</code> trata referências nulas (<code>no == null</code>) e explique como essa escolha afeta a altura calculada para nós folha recém-criados.
+          </div>
+        </li>
+
+        <li class="subquestion-item">
+          <div class="subquestion-title">2. Cálculo do Fator de Balanceamento</div>
+          <div class="subquestion-desc">
+            Apresente a linha do seu código que calcula o fator de balanceamento e explique o significado dos valores retornados (positivos, zero e negativos) segundo a convenção adotada.
+          </div>
+        </li>
+
+        <li class="subquestion-item">
+          <div class="subquestion-title">3. Atualização de Alturas na Árvore</div>
+          <div class="subquestion-desc">
+            Indique em quais pontos da sua implementação a altura de um nó é recalculada e explique por que esse cálculo deve ocorrer no retorno da recursão.
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <footer class="page-footer">
+      UNICAP — Universidade Católica de Pernambuco | Disciplina: Árvores e Ordenação de Dados
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questões de Avaliação — Árvore AVL</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="page-header">
+      <div class="discipline-title">Árvores e Ordenação de Dados</div>
+      <div class="header-badges">
+        <span class="badge badge-dark">Atividade Prática</span>
+        <span class="badge badge-blue">Árvore AVL</span>
+      </div>
+      <h1>Árvore AVL (Adelson-Velsky e Landis)</h1>
+      <p class="subtitle">Questões de avaliação prática e conceitual sobre o código a ser implementado no pacote src.</p>
+    </header>
+
+    <section class="card">
+      <h2 class="card-title">Instruções aos Estudantes</h2>
+      <p class="statement" style="margin-bottom: 0.75rem;">
+        As questões devem ser respondidas de forma <strong>manuscrita</strong> e os arquivos correspondentes (fotos legíveis ou PDF digitalizado) devem ser inseridos na pasta <code>respostas/</code> do repositório.
+      </p>
+      <p class="statement" style="margin-bottom: 0.5rem;">
+        O estudante é responsável por compreender integralmente todo o código submetido. Durante a avaliação, poderá ser solicitado a explicar, executar, depurar ou modificar qualquer trecho de sua implementação. A incapacidade de explicar ou modificar o código poderá resultar na perda da pontuação correspondente à implementação.
+      </p>
+      <div style="margin-top: 1rem; padding: 0.75rem 1rem; background: var(--primary-light); border-left: 4px solid var(--primary); border-radius: var(--radius-sm);">
+        <strong>Regras Específicas da Disciplina:</strong>
+        <ul style="margin: 0.35rem 0 0 1.25rem;">
+          <li>Fator de balanceamento definido como: <code>FB = alturaDireita - alturaEsquerda</code></li>
+          <li>Na remoção de nó com 2 filhos, o substituto deve ser o <strong>maior elemento da subárvore esquerda</strong> (antecessor).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card tad-card">
+      <h2 class="card-title">Definição do TAD</h2>
+      <div class="tad-editor-grid">
+        <article class="vscode-editor" aria-labelledby="no-java-title">
+          <div class="vscode-tabs">
+            <div class="vscode-tab" id="no-java-title">
+              <span class="java-file-icon" aria-hidden="true">J</span>
+              No.java
+            </div>
+          </div>
+          <div class="vscode-code" role="region" aria-label="Código da classe No">
+            <ol>
+              <li><code><span class="syn-keyword">public</span> <span class="syn-keyword">class</span> <span class="syn-type">No</span> {</code></li>
+              <li><code>    <span class="syn-keyword">public</span> <span class="syn-keyword">final</span> <span class="syn-type">Integer</span> <span class="syn-variable">chave</span>;</code></li>
+              <li><code>    <span class="syn-keyword">public</span> <span class="syn-keyword">int</span> <span class="syn-variable">altura</span>;</code></li>
+              <li><code>    <span class="syn-keyword">public</span> <span class="syn-type">No</span> <span class="syn-variable">esquerda</span>;</code></li>
+              <li><code>    <span class="syn-keyword">public</span> <span class="syn-type">No</span> <span class="syn-variable">direita</span>;</code></li>
+              <li><code>&nbsp;</code></li>
+              <li><code>    <span class="syn-keyword">public</span> <span class="syn-method">No</span>(<span class="syn-type">Integer</span> <span class="syn-variable">chave</span>) {</code></li>
+              <li><code>        <span class="syn-keyword">this</span>.<span class="syn-variable">chave</span> = <span class="syn-variable">chave</span>;</code></li>
+              <li><code>        <span class="syn-keyword">this</span>.<span class="syn-variable">altura</span> = 0;</code></li>
+              <li><code>        <span class="syn-keyword">this</span>.<span class="syn-variable">esquerda</span> = <span class="syn-keyword">null</span>;</code></li>
+              <li><code>        <span class="syn-keyword">this</span>.<span class="syn-variable">direita</span> = <span class="syn-keyword">null</span>;</code></li>
+              <li><code>    }</code></li>
+              <li><code>}</code></li>
+            </ol>
+          </div>
+          <div class="vscode-statusbar">
+            <span>Nó AVL</span>
+            <span>Java</span>
+          </div>
+        </article>
+
+        <article class="vscode-editor" aria-labelledby="avl-java-title">
+          <div class="vscode-tabs">
+            <div class="vscode-tab" id="avl-java-title">
+              <span class="java-file-icon" aria-hidden="true">J</span>
+              AVL.java
+            </div>
+          </div>
+          <div class="vscode-code" role="region" aria-label="Estrutura da classe AVL">
+            <ol>
+              <li><code><span class="syn-keyword">public</span> <span class="syn-keyword">class</span> <span class="syn-type">AVL</span> {</code></li>
+              <li><code>    <span class="syn-keyword">public</span> <span class="syn-type">No</span> <span class="syn-variable">raiz</span>;</code></li>
+              <li><code>&nbsp;</code></li>
+              <li><code>    <span class="syn-keyword">public</span> <span class="syn-keyword">void</span> <span class="syn-method">put</span>(<span class="syn-type">Integer</span> <span class="syn-variable">chave</span>) { }</code></li>
+              <li><code>    <span class="syn-keyword">private</span> <span class="syn-type">No</span> <span class="syn-method">put</span>(<span class="syn-type">No</span> <span class="syn-variable">no</span>, <span class="syn-type">Integer</span> <span class="syn-variable">chave</span>) { }</code></li>
+              <li><code>    <span class="syn-keyword">public</span> <span class="syn-keyword">int</span> <span class="syn-method">altura</span>(<span class="syn-type">No</span> <span class="syn-variable">no</span>) { }</code></li>
+              <li><code>    <span class="syn-keyword">private</span> <span class="syn-type">No</span> <span class="syn-method">balancear</span>(<span class="syn-type">No</span> <span class="syn-variable">no</span>) { }</code></li>
+              <li><code>    <span class="syn-keyword">private</span> <span class="syn-type">No</span> <span class="syn-method">rotacaoEsquerda</span>(<span class="syn-type">No</span> <span class="syn-variable">y</span>) { }</code></li>
+              <li><code>    <span class="syn-keyword">private</span> <span class="syn-type">No</span> <span class="syn-method">rotacaoDireita</span>(<span class="syn-type">No</span> <span class="syn-variable">y</span>) { }</code></li>
+              <li><code>    <span class="syn-keyword">public</span> <span class="syn-keyword">int</span> <span class="syn-method">calcularFatorBalanceamento</span>(<span class="syn-type">No</span> <span class="syn-variable">no</span>) { }</code></li>
+              <li><code>    <span class="syn-keyword">public</span> <span class="syn-type">Integer</span> <span class="syn-method">get</span>(<span class="syn-type">Integer</span> <span class="syn-variable">chave</span>) { }</code></li>
+              <li><code>    <span class="syn-keyword">public</span> <span class="syn-keyword">void</span> <span class="syn-method">deletar</span>(<span class="syn-type">Integer</span> <span class="syn-variable">chave</span>) { }</code></li>
+              <li><code>    <span class="syn-keyword">public</span> <span class="syn-type">No</span> <span class="syn-method">deletarMax</span>(<span class="syn-type">No</span> <span class="syn-variable">no</span>) { }</code></li>
+              <li><code>    <span class="syn-keyword">public</span> <span class="syn-type">Integer</span> <span class="syn-method">max</span>() { }</code></li>
+              <li><code>}</code></li>
+            </ol>
+          </div>
+          <div class="vscode-statusbar">
+            <span>Árvore AVL</span>
+            <span>Java</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="questions-grid">
+      <!-- Questão 1 -->
+      <a href="questao-01-fator-balanceamento.html" class="question-card-link">
+        <div class="card question-card">
+          <div>
+            <div class="q-num">Questão 01</div>
+            <h3>Cálculo de Altura e Fator de Balanceamento</h3>
+            <p>Tratamento de referência nula (<code>no == null</code>), altura de folhas, cálculo de <code>FB</code> e atualização de alturas no retorno da recursão.</p>
+          </div>
+          <div class="question-card-footer">
+            <span>Acessar Enunciado</span>
+            <span>&rarr;</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Questão 2 -->
+      <a href="questao-02-rotacoes-simples.html" class="question-card-link">
+        <div class="card question-card">
+          <div>
+            <div class="q-num">Questão 02</div>
+            <h3>Rotações Simples (LL e RR)</h3>
+            <p>Reorganização de ponteiros na rotação simples, subárvore intermediária, recálculo de alturas e condições de disparo.</p>
+          </div>
+          <div class="question-card-footer">
+            <span>Acessar Enunciado</span>
+            <span>&rarr;</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Questão 3 -->
+      <a href="questao-03-rotacoes-duplas.html" class="question-card-link">
+        <div class="card question-card">
+          <div>
+            <div class="q-num">Questão 03</div>
+            <h3>Rotações Duplas (LR e RL)</h3>
+            <p>Identificação dos casos em ziguezague no método <code>balancear</code>, combinação das rotações simples e retorno da nova raiz.</p>
+          </div>
+          <div class="question-card-footer">
+            <span>Acessar Enunciado</span>
+            <span>&rarr;</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Questão 4 -->
+      <a href="questao-04-insercao.html" class="question-card-link">
+        <div class="card question-card">
+          <div>
+            <div class="q-num">Questão 04</div>
+            <h3>Implementação da Inserção em AVL (put)</h3>
+            <p>Navegação recursiva, caso base de inserção da folha, encadeamento com nós pais, rebalanceamento ascendente e chaves duplicadas.</p>
+          </div>
+          <div class="question-card-footer">
+            <span>Acessar Enunciado</span>
+            <span>&rarr;</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Questão 5 -->
+      <a href="questao-05-remocao.html" class="question-card-link">
+        <div class="card question-card">
+          <div>
+            <div class="q-num">Questão 05</div>
+            <h3>Implementação da Remoção e os Três Casos</h3>
+            <p>Tratamento de folha, nó com 1 filho e nó com 2 filhos, substituição pelo antecessor via <code>deletarMax</code> e rebalanceamento pós-exclusão.</p>
+          </div>
+          <div class="question-card-footer">
+            <span>Acessar Enunciado</span>
+            <span>&rarr;</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Questão 6 -->
+      <a href="questao-06-rebalanceamento-busca.html" class="question-card-link">
+        <div class="card question-card">
+          <div>
+            <div class="q-num">Questão 06</div>
+            <h3>Métodos de Consulta (get e max)</h3>
+            <p>Implementação da busca por chave (<code>get</code>), localização do valor máximo (<code>max</code>), tratamento de árvore vazia e conversão recursiva/iterativa.</p>
+          </div>
+          <div class="question-card-footer">
+            <span>Acessar Enunciado</span>
+            <span>&rarr;</span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <footer class="page-footer">
+      UNICAP — Universidade Católica de Pernambuco | Disciplina: Árvores e Ordenação de Dados
+    </footer>
+  </div>
+</body>
+</html>

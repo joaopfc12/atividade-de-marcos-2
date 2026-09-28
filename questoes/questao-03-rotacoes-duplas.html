@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questão 3 — Rotações Duplas (LR e RL)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="nav-back">&larr; Voltar ao Sumário de Questões</a>
+
+    <header class="page-header">
+      <div class="discipline-title">Árvores e Ordenação de Dados</div>
+      <div class="header-badges">
+        <span class="badge badge-dark">Questão 03</span>
+      </div>
+      <h1>Rotações Duplas (LR e RL)</h1>
+      <p class="subtitle">Explicação e defesa da identificação e execução das rotações duplas no arquivo AVL.java.</p>
+    </header>
+
+    <section class="card">
+      <h2 class="card-title">Contexto da Implementação</h2>
+      <p class="statement code-context">No arquivo <code>src/AVL.java</code>, você deve implementar o método de balanceamento:</p>
+      <div class="vscode-editor code-snippet" aria-labelledby="rot-dupla-code-title">
+        <div class="vscode-tabs">
+          <div class="vscode-tab" id="rot-dupla-code-title">
+            <span class="java-file-icon" aria-hidden="true">J</span>
+            AVL.java
+          </div>
+        </div>
+        <div class="vscode-code" role="region" aria-label="Método balancear">
+          <ol>
+            <li><code><span class="syn-keyword">private</span> <span class="syn-type">No</span> <span class="syn-method">balancear</span>(<span class="syn-type">No</span> <span class="syn-variable">no</span>)</code></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 class="card-title">Itens de Avaliação</h2>
+      <ul class="subquestions-list">
+        <li class="subquestion-item">
+          <div class="subquestion-title">1. Detecção dos Casos em Ziguezague</div>
+          <div class="subquestion-desc">
+            Mostre no seu método <code>balancear</code> como o seu código detecta a necessidade de uma rotação dupla (LR ou RL) através da comparação dos fatores de balanceamento do nó e de seu filho.
+          </div>
+        </li>
+
+        <li class="subquestion-item">
+          <div class="subquestion-title">2. Composição da Rotação Dupla</div>
+          <div class="subquestion-desc">
+            Explique como o seu código realiza a rotação dupla combinando chamadas aos métodos de rotação simples (<code>rotacaoEsquerda</code> e <code>rotacaoDireita</code>).
+          </div>
+        </li>
+
+        <li class="subquestion-item">
+          <div class="subquestion-title">3. Retorno da Nova Raiz</div>
+          <div class="subquestion-desc">
+            Como o método <code>balancear</code> garante que a nova raiz resultante seja retornada e encadeada corretamente ao nó pai na árvore?
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <footer class="page-footer">
+      UNICAP — Universidade Católica de Pernambuco | Disciplina: Árvores e Ordenação de Dados
+    </footer>
+  </div>
+</body>
+</html>
