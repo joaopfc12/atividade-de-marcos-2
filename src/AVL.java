@@ -2,7 +2,7 @@ public class AVL {
     public No raiz;
 
     public AVL() {
-        this.raiz = null;   // árvore começa vazia
+        this.raiz = null;   
     }
 
     public int altura(No no) {
