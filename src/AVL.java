@@ -19,3 +19,15 @@ public class AVL {
         return altura(no.direita) - altura(no.esquerda);
     }
 }
+    private No rotacaoEsquerda(No y) {
+        No x = y.direita;
+        No t2 = x.esquerda;
+
+        x.esquerda = y;
+        y.direita = t2;
+
+        y.altura = 1 + Math.max(altura(y.esquerda), altura(y.direita));
+        x.altura = 1 + Math.max(altura(x.esquerda), altura(x.direita));
+
+        return x;   
+    }
