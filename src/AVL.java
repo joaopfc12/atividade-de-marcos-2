@@ -166,9 +166,9 @@ public class AVL {
             }
 
             No removido = no;
-            no = max(removido.esquerda); // o predecessor assume o lugar
-            no.esquerda = deletarMax(removido.esquerda); // tira o predecessor de onde ele estava
-            no.direita = removido.direita; // herda a direita do removido
+            no = max(removido.esquerda);
+            no.esquerda = deletarMax(removido.esquerda);
+            no.direita = removido.direita;
         }
 
         return balancear(no);
