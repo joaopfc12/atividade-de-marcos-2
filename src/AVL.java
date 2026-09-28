@@ -44,5 +44,29 @@ public class AVL {
 
         return x;
     }
+    private No balancear(No no) {
+        no.altura = 1 + Math.max(altura(no.esquerda), altura(no.direita));
 
+        int fb = calcularFatorBalanceamento(no);
+
+
+        if (fb > 1) {
+
+            if (calcularFatorBalanceamento(no.direita) < 0) {
+                no.direita = rotacaoDireita(no.direita);
+            }
+            return rotacaoEsquerda(no);
+        }
+
+
+        if (fb < -1) {
+
+            if (calcularFatorBalanceamento(no.esquerda) > 0) {
+                no.esquerda = rotacaoEsquerda(no.esquerda);
+            }
+            return rotacaoDireita(no);
+        }
+
+        return no;
+    }
 }
