@@ -69,4 +69,27 @@ public class AVL {
 
         return no;
     }
+        public void put(Integer chave) {
+        raiz = put(raiz, chave);
+    }
+
+    private No put(No no, Integer chave) {
+        
+        if (no == null) {
+            return new No(chave);
+        }
+
+        int cmp = chave.compareTo(no.chave);
+
+        if (cmp < 0) {
+            no.esquerda = put(no.esquerda, chave);
+        } else if (cmp > 0) {
+            no.direita = put(no.direita, chave);
+        } else {
+            return no;   
+        }
+
+        
+        return balancear(no);
+    }
 }
